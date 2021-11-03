@@ -1,5 +1,5 @@
 import initializeAuthentication from '../Firebase/firebase.init';
-import { getAuth, signInWithPopup, GoogleAuthProvider,onAuthStateChanged } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider,onAuthStateChanged, sendEmailVerification } from "firebase/auth";
 import { useEffect, useState } from 'react';
 
 initializeAuthentication();
@@ -9,17 +9,26 @@ const useFirebase = () => {
     const googleProvider = new GoogleAuthProvider();
     const auth = getAuth();
     
+    //google sign in
     const signInUsingGoogle = () => {
         signInWithPopup(auth, googleProvider)
         .then(result => {
             setUser(result.user)
             console.log(result.user)
+            verifyEmail()
         })
         .catch(err => {
             console.log(err.message)
         })
     }
+
+    const verifyEmail = () => {
+        sendEmailVerification(auth.currentUser)
+    .then( () => {
+        console.log('email vefification sent')
+    });
     
+    }
 
 
     //observer hooks
