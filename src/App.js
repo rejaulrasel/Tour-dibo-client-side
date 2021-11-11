@@ -1,6 +1,7 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
 import AuthProvider from './Context/AuthProvider';
+import ContactUs from './pages/ContactUs/ContactUs';
 import Footer from './pages/Footer/Footer';
 import Header from './pages/Header/Header';
 import Home from './pages/Home/Home';
@@ -19,6 +20,9 @@ function App() {
           </Route>
           <Route exact path='/home'>
             <Home></Home>
+          </Route>
+          <Route exact path='/contact'>
+            <ContactUs></ContactUs>
           </Route>
           <Route exact path='/login'>
             <Login></Login>
