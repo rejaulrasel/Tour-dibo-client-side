@@ -1,5 +1,5 @@
 import initializeAuthentication from '../Firebase/firebase.init';
-import { getAuth, signInWithPopup, GoogleAuthProvider,onAuthStateChanged, sendEmailVerification } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider,onAuthStateChanged, sendEmailVerification, signOut } from "firebase/auth";
 import { useEffect, useState } from 'react';
 
 initializeAuthentication();
@@ -32,9 +32,6 @@ const useFirebase = () => {
 
 
     //observer hooks
-
-
-
     useEffect(() => {
         const unsubscribed = onAuthStateChanged(auth, user => {
             if(user){
@@ -50,9 +47,19 @@ const useFirebase = () => {
         return () => unsubscribed;
     },[])
 
+    const logout = () => {
+        signOut(auth).then(() => {
+            // Sign-out successful.
+          }).catch((error) => {
+            // An error happened.
+          });
+          
+    }
+
     return{
         signInUsingGoogle,
         user,
+        logout,
     }
 };
 
