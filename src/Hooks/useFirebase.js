@@ -32,34 +32,23 @@ const useFirebase = () => {
 
 
     //observer hooks
-    useEffect(() => {
-        onAuthStateChanged(auth, user => {
-            if(user){
-                setUser(user)
 
+
+
+    useEffect(() => {
+        const unsubscribed = onAuthStateChanged(auth, user => {
+            if(user){
+                console.log('inside state changed', user);
+                setUser(user);
             }
             else{
                 setUser({})
             }
+            // setIsLoading(false)
         })
-    }, [])
 
-
-
-    // useEffect(() => {
-    //     const unsubscribed = onAuthStateChanged(auth, user => {
-    //         if(user){
-    //             console.log('inside state changed', user);
-    //             setUser(user);
-    //         }
-    //         else{
-    //             setUser({})
-    //         }
-    //         // setIsLoading(false)
-    //     })
-
-    //     return () => unsubscribed;
-    // },[])
+        return () => unsubscribed;
+    },[])
 
     return{
         signInUsingGoogle,
