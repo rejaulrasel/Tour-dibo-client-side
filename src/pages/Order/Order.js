@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory, useParams } from 'react-router';
-// import swal from 'sweetalert';
-
 import useAuth from '../../Hooks/useAuth';
 
-const PlaceOrder = () => {
+const Order = () => {
     const history = useHistory()
     const { user } = useAuth();
     const [service, setService] = useState({});
-    console.log(service.title)
     const [status,setStatus] =useState('pending')
     const { serviceId } = useParams();
 
@@ -62,7 +59,7 @@ const PlaceOrder = () => {
                         <input className="mb-2" placeholder="Travel date" type="date"  {...register("travelDate", { required: true })} />
                         <input className="mb-2" placeholder="Current date" defaultValue={new Date()}  {...register("date", { required: true })} />
 
-                        <input className="btn btn-warning text-white" type="submit" value='Book Now' />
+                        <input className="btn btn-warning text-white" type="submit" />
                     </form>
                 </div>
             </div>
@@ -70,4 +67,4 @@ const PlaceOrder = () => {
     );
 };
 
-export default PlaceOrder;
+export default Order;

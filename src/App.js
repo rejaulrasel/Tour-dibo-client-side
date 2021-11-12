@@ -8,6 +8,9 @@ import Footer from './pages/Footer/Footer';
 import Header from './pages/Header/Header';
 import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
+import ManageOrder from './pages/ManageOrder/ManageOrder';
+import MyOrder from './pages/MyOrder/MyOrder';
+import Order from './pages/Order/Order';
 import PageNotFound from './pages/PageNotFound/PageNotFound';
 import PlaceOrder from './pages/PlaceOrder/PlaceOrder';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
@@ -16,33 +19,42 @@ function App() {
   return (
     <div className="App">
       <AuthProvider>
-      <BrowserRouter>
-      <Header></Header>
-        <Switch>
-          <Route exact path='/'>
-            <Home></Home>
-          </Route>
-          <Route exact path='/home'>
-            <Home></Home>
-          </Route>
-          <Route exact path='/contact'>
-            <ContactUs></ContactUs>
-          </Route>
-          <Route exact path='/login'>
-            <Login></Login>
-          </Route>
-          <Route exact path='/addService'>
-            <AddService></AddService>
-          </Route>
-          <PrivateRoute path ="/booking/:serviceId">
-            <PlaceOrder></PlaceOrder>
+        <BrowserRouter>
+          <Header></Header>
+          <Switch>
+            <Route exact path='/'>
+              <Home></Home>
+            </Route>
+            <Route exact path='/home'>
+              <Home></Home>
+            </Route>
+            <Route exact path='/contact'>
+              <ContactUs></ContactUs>
+            </Route>
+            <PrivateRoute path="/booking/:serviceId">
+              <Order></Order>
+            </PrivateRoute>
+            <PrivateRoute path='/myOrders'>
+              <MyOrder></MyOrder>
+            </PrivateRoute>
+            <PrivateRoute path='/manageOrder'>
+            <ManageOrder></ManageOrder>
           </PrivateRoute>
-          <Route exact path='*'>
-            <PageNotFound></PageNotFound>
-          </Route>
-        </Switch>
-        <Footer></Footer>
-      </BrowserRouter>
+            <Route exact path='/login'>
+              <Login></Login>
+            </Route>
+            <Route exact path='/addService'>
+              <AddService></AddService>
+            </Route>
+            <PrivateRoute path="/booking/:serviceId">
+              <PlaceOrder></PlaceOrder>
+            </PrivateRoute>
+            <Route exact path='*'>
+              <PageNotFound></PageNotFound>
+            </Route>
+          </Switch>
+          <Footer></Footer>
+        </BrowserRouter>
       </AuthProvider>
     </div>
   );
