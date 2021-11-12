@@ -10,6 +10,7 @@ import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
 import PageNotFound from './pages/PageNotFound/PageNotFound';
 import PlaceOrder from './pages/PlaceOrder/PlaceOrder';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
 
 function App() {
   return (
@@ -33,9 +34,9 @@ function App() {
           <Route exact path='/addService'>
             <AddService></AddService>
           </Route>
-          <Route path ="/booking/:serviceId">
+          <PrivateRoute path ="/booking/:serviceId">
             <PlaceOrder></PlaceOrder>
-          </Route>
+          </PrivateRoute>
           <Route exact path='*'>
             <PageNotFound></PageNotFound>
           </Route>
