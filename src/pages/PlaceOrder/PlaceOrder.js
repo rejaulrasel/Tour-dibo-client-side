@@ -14,7 +14,7 @@ const PlaceOrder = () => {
     const { serviceId } = useParams();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/services/${serviceId}`)
+        fetch(`https://quiet-lowlands-89640.herokuapp.com/services/${serviceId}`)
             .then(res => res.json())
             .then(data => setService(data))
     }, []);
@@ -24,7 +24,7 @@ const PlaceOrder = () => {
     const onSubmit = (data) => {
         data.destination = service?.title;
         data.status = status;
-        fetch("http://localhost:5000/addEvent", {
+        fetch("https://quiet-lowlands-89640.herokuapp.com/addEvent", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),
@@ -58,7 +58,7 @@ const PlaceOrder = () => {
                         <input className="mb-2" placeholder="Enter Your Address" {...register("address", { required: true })} />
 
                         <input className="mb-2" placeholder="Enter the UserName" defaultValue={user?.displayName} {...register("name", { required: true, maxLength: 100 })} />
-                        <input className="mb-2" type="email" placeholder="Enter Your email" defaultValue={user.email} {...register("email", { required: true, maxLength: 100 })} />
+                        <input className="mb-2" type="email" placeholder="Enter Your email" defaultValue={user?.email} {...register("email", { required: true, maxLength: 100 })} />
                         <input className="mb-2" placeholder="Travel date" type="date"  {...register("travelDate", { required: true })} />
                         <input className="mb-2" placeholder="Current date" defaultValue={new Date()}  {...register("date", { required: true })} />
 

@@ -11,7 +11,7 @@ const Header = () => {
         <>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky="top">
                 <Container>
-                    <Navbar.Brand href="/home">TOUR-DIBO</Navbar.Brand>
+                    <Navbar.Brand href="/home"><h4 className='text-warning'>TOUR-DIBO</h4></Navbar.Brand>
                     <Navbar.Toggle />
                     <Navbar.Collapse className="justify-content-end">
                     <Nav.Link as={Link} to="/home">Home</Nav.Link>

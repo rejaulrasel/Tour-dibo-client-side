@@ -7,7 +7,7 @@ const ManageOrder = () => {
     const [status, setStatus] = useState('pending');
 
     useEffect(() => {
-        fetch('http://localhost:5000/allEvents')
+        fetch('https://quiet-lowlands-89640.herokuapp.com/allEvents')
             .then(res => res.json())
             .then(data => setEvents(data))
     }, [])
@@ -25,7 +25,7 @@ const ManageOrder = () => {
             .then((willDelete) => {
                 if (willDelete) {
 
-                    fetch(`http://localhost:5000/deleteEvents/${id}`, {
+                    fetch(`https://quiet-lowlands-89640.herokuapp.com/deleteEvents/${id}`, {
                         method: "Delete",
                         headers: { "content-type": "application/json" },
                     }, [])
@@ -39,7 +39,9 @@ const ManageOrder = () => {
 
 
 
-                    swal("Your file has been deleted!")
+                    swal("Your file has been deleted!", {
+                        icon: "success",
+                    });
                 } else {
                     swal("Your file is safe!");
                 }
@@ -48,11 +50,11 @@ const ManageOrder = () => {
 
     const handleUpdate = id => {
         setStatus('Approved');
-        fetch(`http://localhost:5000/update/${id}`, {
+        fetch(`https://quiet-lowlands-89640.herokuapp.com/update/${id}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(),
-        }, [])
+        },[])
             .then(res => res.json())
             .then(data => {
                 console.log(data);
