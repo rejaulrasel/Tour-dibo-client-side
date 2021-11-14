@@ -1,6 +1,7 @@
 import initializeAuthentication from '../Firebase/firebase.init';
 import { getAuth, signInWithPopup, GoogleAuthProvider,onAuthStateChanged, sendEmailVerification, signOut } from "firebase/auth";
 import { useEffect, useState } from 'react';
+import { useHistory, useLocation } from 'react-router-dom';
 
 initializeAuthentication();
 
@@ -12,28 +13,21 @@ const useFirebase = () => {
     const auth = getAuth();
     
     //google sign in
+    // const history = useHistory();
+    // const location = useLocation();
+    // const redirect_uri = location.state?.from || '/home';
     const signInUsingGoogle = () => {
         setIsLoading(true)
         signInWithPopup(auth, googleProvider)
-        // .then(result => {
-        //     setUser(result.user)
-        //     console.log(result.user)
-        //     verifyEmail()
-        // })
-        // .catch(err => {
-        //     console.log(err.message)
-        // })
-        // .finally(() => setIsLoading(false))
+        .then((result) => {
+            setUser(result.user);
+            setError({});
+          })
+          .catch((error) => {
+            setError(error.message);
+          })
+          .finally(() => setIsLoading(false));
     }
-
-    // const verifyEmail = () => {
-    //     sendEmailVerification(auth.currentUser)
-    // .then( () => {
-    //     console.log('email vefification sent')
-    // });
-    
-    // }
-
 
     //observer hooks
     useEffect(() => {
@@ -65,8 +59,8 @@ const useFirebase = () => {
 
     return{
         signInUsingGoogle,
-        setUser,
         user,
+        setUser,
         setError,
         error,
         logout,
