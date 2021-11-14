@@ -58,7 +58,7 @@ const PlaceOrder = () => {
                         <input className="mb-2" placeholder="Enter Your Address" {...register("address", { required: true })} />
 
                         <input className="mb-2" placeholder="Enter the UserName" defaultValue={user?.displayName} {...register("name", { required: true, maxLength: 100 })} />
-                        <input className="mb-2" type="email" placeholder="Enter Your email" defaultValue={user?.email} {...register("email", { required: true, maxLength: 100 })} />
+                        <input className="mb-2" type="email" placeholder="Enter Your email" defaultValue={user.email} {...register("email", { required: true, maxLength: 100 })} />
                         <input className="mb-2" placeholder="Travel date" type="date"  {...register("travelDate", { required: true })} />
                         <input className="mb-2" placeholder="Current date" defaultValue={new Date()}  {...register("date", { required: true })} />
 
