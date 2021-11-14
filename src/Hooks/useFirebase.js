@@ -15,24 +15,24 @@ const useFirebase = () => {
     const signInUsingGoogle = () => {
         setIsLoading(true)
         signInWithPopup(auth, googleProvider)
-        .then(result => {
-            setUser(result.user)
-            console.log(result.user)
-            verifyEmail()
-        })
-        .catch(err => {
-            console.log(err.message)
-        })
-        .finally(() => setIsLoading(false))
+        // .then(result => {
+        //     setUser(result.user)
+        //     console.log(result.user)
+        //     verifyEmail()
+        // })
+        // .catch(err => {
+        //     console.log(err.message)
+        // })
+        // .finally(() => setIsLoading(false))
     }
 
-    const verifyEmail = () => {
-        sendEmailVerification(auth.currentUser)
-    .then( () => {
-        console.log('email vefification sent')
-    });
+    // const verifyEmail = () => {
+    //     sendEmailVerification(auth.currentUser)
+    // .then( () => {
+    //     console.log('email vefification sent')
+    // });
     
-    }
+    // }
 
 
     //observer hooks
@@ -65,8 +65,12 @@ const useFirebase = () => {
 
     return{
         signInUsingGoogle,
+        setUser,
         user,
+        setError,
+        error,
         logout,
+        setIsLoading,
         isLoading,
     }
 };

@@ -1,6 +1,5 @@
 import React from 'react';
 import useAuth from '../../Hooks/useAuth';
-import useFirebase from '../../Hooks/useFirebase';
 import './Login.css';
 const Login = () => {
     const {signInUsingGoogle,user} = useAuth();

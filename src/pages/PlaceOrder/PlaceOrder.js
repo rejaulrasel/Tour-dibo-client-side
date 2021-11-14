@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory, useParams } from 'react-router';
-// import swal from 'sweetalert';
+import swal from 'sweetalert';
 
 import useAuth from '../../Hooks/useAuth';
 
@@ -33,7 +33,7 @@ const PlaceOrder = () => {
             .then((result) => console.log(result));
         console.log(data);
         history.push('/home')
-        alert("Congratulation!", "You have register successfully", "success");
+        swal("Congratulation!", "You have register successfully", "success");
         reset();
     };
 
