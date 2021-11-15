@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Spinner } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { useHistory, useParams } from 'react-router';
 import swal from 'sweetalert';
@@ -7,11 +8,13 @@ import useAuth from '../../Hooks/useAuth';
 
 const PlaceOrder = () => {
     const history = useHistory()
-    const { user } = useAuth();
+    const { user} = useAuth();
     const [service, setService] = useState({});
     console.log(service.title)
     const [status,setStatus] =useState('pending')
     const { serviceId } = useParams();
+
+    
 
     useEffect(() => {
         fetch(`https://quiet-lowlands-89640.herokuapp.com/services/${serviceId}`)
@@ -36,7 +39,6 @@ const PlaceOrder = () => {
         swal("Congratulation!", "You have register successfully", "success");
         reset();
     };
-
 
     return (
         <div className="container my-4">

@@ -1,6 +1,7 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
 import AuthProvider from './Context/AuthProvider';
+import AboutUs from './pages/AboutUs/AboutUs';
 import AddService from './pages/AddService/AddService';
 
 import ContactUs from './pages/ContactUs/ContactUs';
@@ -25,10 +26,13 @@ function App() {
             <Route exact path='/'>
               <Home></Home>
             </Route>
-            <Route exact path='/home'>
+            <Route path='/home'>
               <Home></Home>
             </Route>
-            <Route exact path='/contact'>
+            <Route path='/about'>
+              <AboutUs></AboutUs>
+            </Route>
+            <Route path='/contact'>
               <ContactUs></ContactUs>
             </Route>
             <PrivateRoute path="/booking/:serviceId">
@@ -40,16 +44,16 @@ function App() {
             <PrivateRoute path='/manageOrder'>
             <ManageOrder></ManageOrder>
           </PrivateRoute>
-            <Route exact path='/login'>
+            <Route path='/login'>
               <Login></Login>
             </Route>
-            <Route exact path='/addService'>
+            <Route path='/addService'>
               <AddService></AddService>
             </Route>
             <PrivateRoute path="/booking/:serviceId">
               <PlaceOrder></PlaceOrder>
             </PrivateRoute>
-            <Route exact path='*'>
+            <Route path='*'>
               <PageNotFound></PageNotFound>
             </Route>
           </Switch>
