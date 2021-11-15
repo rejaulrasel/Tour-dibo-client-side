@@ -16,11 +16,13 @@ const useFirebase = () => {
     // const history = useHistory();
     // const location = useLocation();
     // const redirect_uri = location.state?.from || '/home';
-    const signInUsingGoogle = () => {
+    const signInUsingGoogle = (location, history) => {
         setIsLoading(true)
         signInWithPopup(auth, googleProvider)
         .then((result) => {
             setUser(result.user);
+            const destination = location?.state?.from || '/';
+            history.replace(destination);
             setError({});
           })
           .catch((error) => {
