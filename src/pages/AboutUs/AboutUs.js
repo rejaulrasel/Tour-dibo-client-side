@@ -1,5 +1,5 @@
 import React from 'react';
-import image from '../../images/cruise_line_travel_agency.jpg.crdownload'
+import image from '../../images/download.jpg'
 import ceo_image from '../../images/img_ceo.jpg'
 const AboutUs = () => {
     return (
@@ -10,7 +10,7 @@ const AboutUs = () => {
             <div className='w-75 mx-auto'>
                 <p className='text-start'><b>Tour-Dibo</b> is leading tour operator of Bangladesh and we are member of International Air Transport Association <b>(IATA)</b> and Tour Operators Association of Bangladesh <b>(TOAB)</b>. We are not only for tour operator, our Established Software company, This company provide many pro- <br /> <br />
                     <div className="text-center">
-                        <img className='img-fluid mb-4' src={image} alt="" /></div> <br />
+                        <img className='img-fluid mb-4 w-50' src={image} alt="" /></div> <br />
                     uct is  travel related and others kinds of software. <b>Tour-Dibo</b> provides inbound and outbound tour operate. Inbound tours provide experience guide, standard and any category’s hotel, best tours spot selection and your security. Holidays are meant for relaxation, to rejuvenate your energy moreover to spend your quality time with your loved ones and it is imperative to have the best Tour Operator to be your travel planner, who has got the experience, Infrastructure, commitment and who is a real professional to plan your valuable Tour.    There’s no need to get bogged down in each and every tour operator’s website individually, because we can offer you Inbound tours Dhaka, Shundarban, Cox’sbazar, St.Mertin, Teknaf, Rangamati,  Khagrachori, Bandarbon, Chittagong, Sylhet and Out bound tours Thailand, Singapore, Malaysia, India, Nepal, Bhutan, Chine, Egypt, Indonesia and cruises all in one place, and from just about every holiday company you can think of. If you’d like to find out a little more about some of the tour operators and holiday companies featured on our company.
                     <br />
                     <br />

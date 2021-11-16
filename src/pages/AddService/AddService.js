@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-// import swal from 'sweetalert';
+import swal from 'sweetalert';
 import { useHistory} from 'react-router';
 
 const AddService = () => {
@@ -18,7 +18,7 @@ const AddService = () => {
         .then(result =>{
             console.log(result);
             if (result.insertedId) {
-                alert('added succesfully')
+                swal('added succesfully')
                 // swal("Congratulation!" ,"You have added the service", "success");
                 reset();
                 history.push('/home')

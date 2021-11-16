@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import { Spinner } from 'react-bootstrap';
+import useAuth from '../../Hooks/useAuth';
 import Service from './Service/Service';
 
 const Services = () => {
-
+    
+    const {isLoading} = useAuth();
     const [services, setServices] = useState([]);
-
+    
     useEffect(() => {
         fetch('https://quiet-lowlands-89640.herokuapp.com/services')
             .then(res => res.json())
@@ -13,6 +16,10 @@ const Services = () => {
                 console.log(data);
             })
     }, [])
+
+    if (isLoading) {
+        return <Spinner animation="border" variant="danger" />
+     }
 
     return (
         <div className="my-4">

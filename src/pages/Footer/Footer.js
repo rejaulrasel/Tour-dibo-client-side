@@ -12,8 +12,10 @@ import {
   faMapMarkedAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import useAuth from "../../Hooks/useAuth";
 
 const Footer = () => {
+  const {user} = useAuth();
   return (
     <div>
       <div className="footer-container">
@@ -55,11 +57,22 @@ const Footer = () => {
                   <br />
                   <Link className="footer-menu text-decoration-none text-white pb-4" to="/contact">Contact Us</Link>
                   <br />
+                  {
+                    user.email && <Link className="footer-menu text-decoration-none text-white pb-4" to="/myOrders">My Orders</Link>
+                  }
+                  <br />
+                  {
+                    user.email && <Link className="footer-menu text-decoration-none text-white pb-4" to="/manageOrder">Manage All Orders</Link>
+                  }
+                  <br />
+                  {
+                    user.email && <Link className="footer-menu text-decoration-none text-white pb-4" to="/addService">Add Service</Link>
+                  }
                 </ul>
               </div>
             </div>
             <div className="col-md-5">
-              <div className="right-footer-container">
+              <div className="right-footer-container ">
                 <h3>Sign up for <br /> the Tour-Dibo</h3>
                 <input
                   className="footer-input"
