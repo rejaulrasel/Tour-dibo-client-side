@@ -7,7 +7,7 @@ const ManageOrder = () => {
     const [status, setStatus] = useState('pending');
 
     useEffect(() => {
-        fetch('https://quiet-lowlands-89640.herokuapp.com/allEvents')
+        fetch('https://tour-dibo-production.up.railway.app/allEvents')
             .then(res => res.json())
             .then(data => setEvents(data))
     }, [])
@@ -25,7 +25,7 @@ const ManageOrder = () => {
             .then((willDelete) => {
                 if (willDelete) {
 
-                    fetch(`https://quiet-lowlands-89640.herokuapp.com/deleteEvents/${id}`, {
+                    fetch(`https://tour-dibo-production.up.railway.app/deleteEvents/${id}`, {
                         method: "Delete",
                         headers: { "content-type": "application/json" },
                     }, [])
@@ -50,7 +50,7 @@ const ManageOrder = () => {
 
     const handleUpdate = id => {
         setStatus('Approved');
-        fetch(`https://quiet-lowlands-89640.herokuapp.com/update/${id}`, {
+        fetch(`https://tour-dibo-production.up.railway.app/update/${id}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(),

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './Services.css'
 import { Spinner } from 'react-bootstrap';
 import useAuth from '../../Hooks/useAuth';
 import Service from './Service/Service';
@@ -9,7 +10,7 @@ const Services = () => {
     const [services, setServices] = useState([]);
     
     useEffect(() => {
-        fetch('https://quiet-lowlands-89640.herokuapp.com/services')
+        fetch('https://tour-dibo-production.up.railway.app/services')
             .then(res => res.json())
             .then(data => {
                 setServices(data);
@@ -22,7 +23,7 @@ const Services = () => {
      }
 
     return (
-        <div className="my-4">
+        <div className="my-4 services">
             <h1 className="text-center">Explore Bangladesh</h1>
             <div className="row container-fluid container mx-auto">
             {

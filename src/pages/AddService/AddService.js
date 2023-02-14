@@ -9,7 +9,7 @@ const AddService = () => {
     const { register, handleSubmit,reset } = useForm();
     const onSubmit = data => {
         console.log(data);
-        fetch('https://quiet-lowlands-89640.herokuapp.com/services', {
+        fetch('https://tour-dibo-production.up.railway.app/services', {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data)

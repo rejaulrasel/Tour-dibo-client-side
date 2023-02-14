@@ -17,7 +17,7 @@ const PlaceOrder = () => {
     
 
     useEffect(() => {
-        fetch(`https://quiet-lowlands-89640.herokuapp.com/services/${serviceId}`)
+        fetch(`https://tour-dibo-production.up.railway.app/services/${serviceId}`)
             .then(res => res.json())
             .then(data => setService(data))
     }, []);
@@ -27,7 +27,7 @@ const PlaceOrder = () => {
     const onSubmit = (data) => {
         data.destination = service?.title;
         data.status = status;
-        fetch("https://quiet-lowlands-89640.herokuapp.com/addEvent", {
+        fetch("https://tour-dibo-production.up.railway.app/addEvent", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),
@@ -39,7 +39,7 @@ const PlaceOrder = () => {
         swal("Congratulation!", "You have register successfully", "success");
         reset();
     };
-
+ 
     return (
         <div className="container my-4">
             <h2 className="my-4 text-center">Explore {service?.title}</h2>

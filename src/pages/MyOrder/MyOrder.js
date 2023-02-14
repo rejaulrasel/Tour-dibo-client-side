@@ -9,7 +9,7 @@ const MyOrder = () => {
     const { user } = useAuth();
 
     useEffect(() => {
-        fetch(`https://quiet-lowlands-89640.herokuapp.com/myEvents/${user?.email}`)
+        fetch(`https://tour-dibo-production.up.railway.app/myEvents/${user?.email}`)
             .then(res => res.json())
             .then(data => setEvents(data));
     }, [user.email]);
