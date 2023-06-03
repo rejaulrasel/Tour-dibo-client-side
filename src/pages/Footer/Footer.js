@@ -43,7 +43,7 @@ const Footer = () => {
                 </p>
 
                 <p className="mt-5">
-                  <small>Tour-Dibo © . All rights reserved.</small>
+                  <small>Tour-Dibo ©.All rights reserved.</small>
                 </p>
               </div>
             </div>
